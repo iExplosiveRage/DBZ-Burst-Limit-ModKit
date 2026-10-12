@@ -13,7 +13,8 @@ from your copy as well. When you share a mod, share only the files you made your
 - Python 3.9 or newer on Windows. Packages: `numpy` and `Pillow` (`pip install -r requirements.txt`)
 - The game: the US (NTSC-U) version, installed for the PC recompilation (folder `game_data_root`,
   which has `default.xex` and `LONG2DATA\`)
-- A build of the game that has extra-character slots (the **R2** page) and the Mods menu
+- [DBZ Burst Limit Recompiled](https://github.com/iExplosiveRage/DBZ-Burst-Limit-Recompiled/releases) **v0.5.0-alpha or newer**
+  (the first version with extra-character slots, the **R2** page)
 
 ```
 python -m blmodkit --help

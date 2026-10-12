@@ -7,6 +7,7 @@
 و`default.xex`) وقت التشغيل.
 
 **المتطلبات:** Python 3.9 أو أحدث، و`pip install -r requirements.txt` (يثبّت numpy وPillow).
+واللعبة [DBZ Burst Limit Recompiled](https://github.com/iExplosiveRage/DBZ-Burst-Limit-Recompiled/releases) نسخة **v0.5.0-alpha أو أحدث** (أول نسخة فيها صفحة R2).
 
 ## الواجهة الرسومية (GUI)
 
