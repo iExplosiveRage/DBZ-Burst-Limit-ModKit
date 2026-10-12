@@ -22,6 +22,7 @@ python -m blmodkit <command> --help
 
 | command | what it does |
 |---|---|
+| `gui` | opens the graphical interface (see [GUI](#gui)) |
 | `config --game <folder>` | saves where your game is, so you don't need `--game` on every command |
 | `extract --out <dir> [--char VGT]` | copies a character's files out of your archive, to look at or edit |
 | `new-slot --base VGT --code XYZ --name "..." --out <mod>` | makes a new extra character from one of the game's characters, ready to load |
@@ -31,6 +32,26 @@ python -m blmodkit <command> --help
 | `hits --mod <mod>` | simulates the slot's rush / smash strings against Goku and Krillin |
 | `check <mod>` | checks a mod: paths, sizes, texture clashes, names, art, voice |
 | `fix-textures --mod <mod>` | gives a slot you made by hand its own texture handles and texture-set names |
+
+### GUI
+
+Prefer buttons? Double-click **`BLModKit.bat`** (or `blmodkit_gui.pyw`) in the kit folder, or run
+`python -m blmodkit gui`. It needs nothing beyond Python, numpy and Pillow (the window uses
+tkinter, which comes with Python from python.org). The tabs follow the steps below:
+
+1. **Setup**: your game folder, the mods folder, Blender (found automatically) and, optionally,
+   `burstlimit.exe`. Saved like `config`.
+2. **New character**: base character, 3-letter code, name, mod folder, switch on (`new-slot`).
+3. **Art**: pick a picture, see the card / big picture / HUD face live, click the face, adjust
+   zoom and framing, then *Apply to mod* (`art`).
+4. **Model**: a `.blend` / `.fbx` / `.glb`, size, lip sync and palette options (`import-model`),
+   with the preview picture.
+5. **Effects**: hue slider with a colour swatch, saturation, aura size (`recolor-fx`).
+6. **Check & test**: `check` results as a list, the `hits` report, open the mods folder, launch
+   the game.
+
+The mod the tabs work on is picked at the top (*Current mod*). Every job prints into the log at
+the bottom, the same text as the command line.
 
 ---
 

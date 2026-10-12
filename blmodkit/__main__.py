@@ -94,6 +94,14 @@ def cmd_import_model(a):
     run(a)
 
 
+def cmd_gui(a):
+    try:
+        from .gui import main as gui_main
+    except ImportError as e:
+        raise KitError("the GUI needs tkinter (part of the standard Python installer from python.org): %s" % e)
+    gui_main()
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(
         prog="python -m blmodkit",
@@ -103,6 +111,9 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     game_help = ("your game: the game_data_root folder (default.xex + LONG2DATA), the LONG2DATA_US.CPK, or "
                  "the burstlimit.exe folder; default: the one saved with `config --game`")
+
+    s = sub.add_parser("gui", help="open the graphical interface (same functions as the commands)")
+    s.set_defaults(fn=cmd_gui)
 
     s = sub.add_parser("config", help="remember where your game is")
     s.add_argument("--game", help=game_help)

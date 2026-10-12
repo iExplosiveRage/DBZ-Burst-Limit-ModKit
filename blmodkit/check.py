@@ -65,9 +65,10 @@ def png_size(path):
         return im.size
 
 
-def run(mod, game=None, mods_dir=None):
+def run(mod, game=None, mods_dir=None, report=None):
+    """report: a util.Report to fill (the GUI reads its errors / warnings / notes afterwards)."""
     mod = os.path.abspath(mod)
-    rep = Report()
+    rep = report if report is not None else Report()
     title = "blmodkit check: %s" % mod
     try:
         data, slots = slotfile.read(mod)

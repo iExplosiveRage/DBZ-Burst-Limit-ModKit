@@ -57,8 +57,9 @@ def export(source, out_dir, blender=None, armature=None, include=None, exclude=N
     if use_pose:
         cmd += ["--use-pose"]
     log("  blender: %s" % exe)
+    # CREATE_NO_WINDOW: no console window pops up when the kit runs without one (the GUI via pythonw)
     p = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8",
-                       errors="replace")
+                       errors="replace", creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     with open(os.path.join(out_dir, "blender_log.txt"), "w", encoding="utf-8") as fh:
         fh.write(" ".join('"%s"' % c if " " in c else c for c in cmd) + "\n\n" + p.stdout)
     ok = [ln for ln in p.stdout.splitlines() if ln.startswith("EXPORT_OK")]
